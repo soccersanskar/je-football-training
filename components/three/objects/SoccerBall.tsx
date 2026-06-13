@@ -5,7 +5,7 @@ import { useFrame } from "@react-three/fiber";
 import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 import { experience, damp } from "@/lib/experience";
-import { ballPosition, ballRoll, BALL_RADIUS } from "@/lib/choreography";
+import { ballPosition, ballRoll, ballScale, BALL_RADIUS } from "@/lib/choreography";
 import { introState } from "@/lib/intro";
 import { MODELS } from "@/lib/models";
 
@@ -313,6 +313,10 @@ export default function SoccerBall() {
     group.current.position.x = damp(group.current.position.x, x + px, 6, dt);
     group.current.position.y = damp(group.current.position.y, y + py + bob, 6, dt);
     group.current.position.z = damp(group.current.position.z, z, 6, dt);
+
+    // Recede to a realistic size relative to the goal as it travels.
+    const s = damp(group.current.scale.x, ballScale(p), 6, dt);
+    group.current.scale.setScalar(s);
 
     const tiltAmt = 0.12 + 0.12 * heroInfluence;
     tilt.current.rotation.x = damp(tilt.current.rotation.x, experience.pointer.y * tiltAmt, 4, dt);

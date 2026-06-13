@@ -11,6 +11,7 @@ import { motion } from "framer-motion";
 export default function PerformanceChapter() {
   return (
     <section className="relative flex min-h-screen items-center justify-center px-6 text-center">
+      <div className="text-scrim" aria-hidden />
       <motion.div
         initial={{ opacity: 0, scale: 0.92 }}
         whileInView={{ opacity: 1, scale: 1 }}

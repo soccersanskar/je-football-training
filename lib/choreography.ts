@@ -64,6 +64,16 @@ export function ballPosition(p: number): Vec3 {
   return travel;
 }
 
+/**
+ * Ball scale across the story. The ball is the hero up close (full size in the
+ * dream), then recedes to a realistic size relative to the goal as it travels
+ * down the pitch — so it doesn't look like a beach ball at the net. Measured
+ * GLB ball ≈ 3.05u, goal ≈ 6.24×2.4u, so ~0.2 lands near real proportion.
+ */
+export function ballScale(p: number): number {
+  return lerp(1, 0.2, smoothstep(0.32, 0.9, p));
+}
+
 /** Accumulated roll angle (radians) so the ball spins as it travels. */
 export function ballRoll(p: number): number {
   // Distance roughly proportional to progress * pitch length.

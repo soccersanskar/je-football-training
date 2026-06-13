@@ -25,7 +25,7 @@ export default function HomeExperience() {
       <Navigation />
       <StoryProgress />
 
-      <main className="relative z-10">
+      <main className="over-stage relative z-10">
         <HeroChapter />
         <DreamChapter />
         <TrainingChapter />

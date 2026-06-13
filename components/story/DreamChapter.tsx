@@ -50,14 +50,17 @@ export default function DreamChapter() {
         </Reveal>
       </div>
 
-      <Reveal delay={0.2} className="relative z-10 mx-auto max-w-2xl text-center">
-        <p className="font-display text-2xl leading-tight tracking-wide text-white/90 sm:text-4xl">
-          “MAXIMIZE YOUR FULL POTENTIAL.”
-        </p>
-        <span className="mt-3 block text-[11px] uppercase tracking-[0.4em] text-je-green">
-          The JE promise
-        </span>
-      </Reveal>
+      <div className="relative z-10 mx-auto w-full max-w-2xl py-10">
+        <div className="text-scrim !h-[160%]" aria-hidden />
+        <Reveal delay={0.2} className="relative text-center">
+          <p className="font-display text-2xl leading-tight tracking-wide text-white sm:text-4xl">
+            “MAXIMIZE YOUR FULL POTENTIAL.”
+          </p>
+          <span className="mt-3 block text-[11px] uppercase tracking-[0.4em] text-je-green">
+            The JE promise
+          </span>
+        </Reveal>
+      </div>
     </section>
   );
 }
